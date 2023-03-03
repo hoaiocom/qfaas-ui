@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qfaas-client
+  labels:
+    app: qfaas-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qfaas-client
+  template:
+    metadata:
+      labels:
+        app: qfaas-client
+    spec:
+      containers:
+      - name: qfaas-client
+        image: quantumdev/qfaas-client
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      resourceLimit: 
